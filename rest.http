@@ -1,0 +1,35 @@
+POST http://localhost:3030/auth/register
+Content-Type: application/json
+
+{
+    "lastName": "Admin",
+    "firstName": "Admin",
+    "userName" : "admin",
+    "email" : "admin@email.com",
+    "mobile" : "9734602284",
+    "password" : "Admin123",
+    "confirmPassword" : "Admin123"
+}
+
+###
+
+POST http://localhost:3030/auth/login
+Content-Type: application/json
+
+{
+    "email" : "test@email.com",
+    "password" : "Test1234"
+}
+
+###
+
+POST http://localhost:3030/books/add
+Content-Type: application/json
+
+{
+    "title": "Sample",
+    "info" :"Sample",
+    "author": "Sample",
+    "genre" : "Sample",
+    "image" : "image"
+}
