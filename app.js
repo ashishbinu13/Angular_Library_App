@@ -17,8 +17,8 @@ app.use(express.json());
 app.use(morgan("dev"));
 app.use(express.urlencoded({ extended: true }));
 
-app.use("/auth", AuthRoute);
-app.use("/books", BookRoute);
+app.use("/api/auth", AuthRoute);
+app.use("/api/books", BookRoute);
 
 app.use(async (req, res, next) => {
   next(createError.NotFound());
