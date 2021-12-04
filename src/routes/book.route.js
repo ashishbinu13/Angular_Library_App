@@ -14,7 +14,7 @@ router.get("/:id", (req, res) => {
   var id = req.params.id;
 
   BookData.findOne({ _id: id }).then((book) => {
-    res.render(book);
+    res.send(book);
   });
 });
 

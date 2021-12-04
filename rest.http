@@ -33,3 +33,8 @@ Content-Type: application/json
     "genre" : "Sample",
     "image" : "image"
 }
+
+
+###
+
+GET  http://localhost:3030/api/books/61ab51f1f6a0b6e3128617ef
