@@ -23,7 +23,7 @@ router.post("/add", async (req, res, next) => {
     var item = {
       title: req.body.title,
       info: req.body.info,
-      author: req.body.info,
+      author: req.body.author,
       genre: req.body.genre,
       image: req.body.image,
     };
