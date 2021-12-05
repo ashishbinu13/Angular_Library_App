@@ -1,35 +1,35 @@
 const express = require("express");
 
-const BookData = require("../models/book.model");
+const AuthorData = require("../models/author.model");
 
 const router = express.Router();
 
 router.get("/", (req, res) => {
-  BookData.find().then((books) => {
-    res.send(books);
+  AuthorData.find().then((authors) => {
+    res.send(authors);
   });
 });
 
 router.get("/:id", (req, res) => {
   var id = req.params.id;
 
-  BookData.findOne({ _id: id }).then((book) => {
-    res.send(book);
+  AuthorData.findOne({ _id: id }).then((author) => {
+    res.send(author);
   });
 });
 
 router.post("/add", async (req, res, next) => {
   try {
     var item = {
-      title: req.body.title,
+      author: req.body.author,
       info: req.body.info,
-      author: req.body.info,
-      genre: req.body.genre,
+      country: req.body.country,
+      language: req.body.language,
       image: req.body.image,
     };
-    var book = BookData(item);
-    book.save();
-    res.send(book);
+    var author = AuthorData(item);
+    author.save();
+    res.send(author);
   } catch (error) {
     next(error);
   }
@@ -38,29 +38,29 @@ router.post("/add", async (req, res, next) => {
 router.put("/:id/update", (req, res) => {
   var id = req.params.id;
   var item = {
-    title: req.body.title,
-    info: req.body.info,
     author: req.body.author,
-    genre: req.body.genre,
+    info: req.body.info,
+    country: req.body.country,
+    language: req.body.language,
     image: req.body.image,
   };
 
-  BookData.findOneAndUpdate({ _id: id }, item, null, (err, book) => {
+  AuthorData.findOneAndUpdate({ _id: id }, item, null, (err, author) => {
     if (err) {
       console.log(err);
     } else {
-      console.log("Original Doc : ", book);
+      console.log("Original Doc : ", author);
     }
   });
 });
 
 router.delete("/:id/delete", (req, res) => {
   var id = req.params.id;
-  BookData.findByIdAndDelete({ _id: id }, (err, book) => {
+  AuthorData.findByIdAndDelete({ _id: id }, (err, author) => {
     if (err) {
       console.log(err);
     } else {
-      console.log("Deleted Book : ", book);
+      console.log("Deleted Book : ", author);
     }
   });
 });

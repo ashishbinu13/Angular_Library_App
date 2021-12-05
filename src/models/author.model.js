@@ -7,7 +7,6 @@ const authorSchema = new Schema({
   info: String,
   country: String,
   language: String,
-  period: String,
   image: String,
 });
 
